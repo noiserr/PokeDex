@@ -18,6 +18,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import third.task.dod.pokedex.DatabaseManager;
 import third.task.dod.pokedex.cons.Const;
 import third.task.dod.pokedex.R;
@@ -58,6 +59,7 @@ public class DetailsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
