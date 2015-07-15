@@ -8,21 +8,18 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-
-import com.activeandroid.query.Select;
+import android.view.View;
 
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
-import third.task.dod.pokedex.Const;
 import third.task.dod.pokedex.DatabaseManager;
+import third.task.dod.pokedex.cons.Const;
 import third.task.dod.pokedex.R;
 import third.task.dod.pokedex.adapter.CouchAdapter;
 import third.task.dod.pokedex.entity.Couch;
-import third.task.dod.pokedex.entity.CouchPokemons;
-import third.task.dod.pokedex.entity.Pokemon;
 import third.task.dod.pokedex.event.ShowDetailsEvent;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setupToolbar();
         setupRecyclerView();
-
     }
 
     @Override
@@ -86,6 +82,16 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         EventBus.getDefault().unregister(this);
     }
+
+    public void addCouch(View view) {
+        Couch couch = new Couch();
+        couch.setName("Janek");
+        DatabaseManager.getInstance().saveCouch(couch);
+        couchAdapter.addCouch(couch);
+        couchAdapter.notifyDataSetChanged();
+    }
+
+
 
     private class CouchAsyncTask extends AsyncTask<Void, Void, List<Couch>>{
 

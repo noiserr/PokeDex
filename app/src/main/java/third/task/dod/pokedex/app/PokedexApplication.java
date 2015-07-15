@@ -1,4 +1,4 @@
-package third.task.dod.pokedex;
+package third.task.dod.pokedex.app;
 
 import android.app.Application;
 

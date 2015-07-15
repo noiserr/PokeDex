@@ -27,6 +27,10 @@ public class CouchAdapter extends RecyclerView.Adapter<CouchAdapter.CouchViewHol
         this.couchList = couchList;
     }
 
+    public void addCouch(Couch couch) {
+        couchList.add(couch);
+    }
+
     @Override
     public CouchViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View viewItem = LayoutInflater.from(parent.getContext()).inflate(R.layout.couch_cardview, parent, false);

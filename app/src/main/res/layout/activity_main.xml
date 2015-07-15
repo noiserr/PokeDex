@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
+        android:onClick="addCouch"
         android:elevation="1dp"
         app:borderWidth="0dp" />
 

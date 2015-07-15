@@ -24,6 +24,10 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.CouchVie
         this.pokemonList = pokemonList;
     }
 
+    public void addPokemon(Pokemon pokemon) {
+        pokemonList.add(pokemon);
+    }
+
     @Override
     public CouchViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View viewItem = LayoutInflater.from(parent.getContext()).inflate(R.layout.pokemon_cardview, parent, false);

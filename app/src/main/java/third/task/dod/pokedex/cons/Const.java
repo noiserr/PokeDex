@@ -1,4 +1,4 @@
-package third.task.dod.pokedex;
+package third.task.dod.pokedex.cons;
 
 /**
  * Created by noiser on 15.07.15.
