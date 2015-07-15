@@ -23,6 +23,7 @@ import third.task.dod.pokedex.DatabaseManager;
 import third.task.dod.pokedex.cons.Const;
 import third.task.dod.pokedex.R;
 import third.task.dod.pokedex.adapter.PokemonAdapter;
+import third.task.dod.pokedex.entity.Couch;
 import third.task.dod.pokedex.entity.CouchPokemons;
 import third.task.dod.pokedex.entity.Pokemon;
 
@@ -79,7 +80,12 @@ public class DetailsActivity extends AppCompatActivity {
     public void addPokemon(View view) {
         Pokemon pokemon = new Pokemon();
         pokemon.setName("Diglet");
+        Couch couch = new Select().from(Couch.class).where("Id = ?", couchId).executeSingle();
         DatabaseManager.getInstance().savePokemon(pokemon);
+        CouchPokemons couchPokemons = new CouchPokemons();
+        couchPokemons.setPokemon(pokemon);
+        couchPokemons.setCouch(couch);
+        DatabaseManager.getInstance().saveUnion(couchPokemons);
         pokemonAdapter.addPokemon(pokemon);
         pokemonAdapter.notifyDataSetChanged();
     }
